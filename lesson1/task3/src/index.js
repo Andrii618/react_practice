@@ -7,11 +7,12 @@ const rootElement = document.querySelector('#root');
 const greetBlock = (
   <div className="greeting">
     <h1 className="greeting__title">Hello, world!</h1>
-    <p className="greeting__text">I'm learning React</p>
+    <p className="greeting__text">I&apos;m learning React</p>
   </div>
 );
 
 ReactDOM.render(greetBlock, rootElement);
+
 // const renderGreeting = elem => {
 //   const containerElem = document.createElement('div');
 //   containerElem.classList.add('greeting');
