@@ -34,7 +34,6 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new webpack.ProgressPlugin(),
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
@@ -48,7 +47,7 @@ module.exports = (env, argv) => {
   };
 
   if (!isProduction) {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.plugins.push(new CleanWebpackPlugin(), new webpack.HotModuleReplacementPlugin());
   }
 
   if (isProduction) {
