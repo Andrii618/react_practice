@@ -21,11 +21,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /.s?css$/,
-          use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-            'css-loader',
-            'sass-loader',
-          ],
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
       ],
     },
@@ -51,13 +47,13 @@ module.exports = (env, argv) => {
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
-  if (isProduction) {
-    config.plugins.push(
-      new MiniCssExtractPlugin({
-        filename: '[name].css',
-      }),
-    );
-  }
+  // if (isProduction) {
+  //   config.plugins.push(
+  //     new MiniCssExtractPlugin({
+  //       filename: '[name].css',
+  //     }),
+  //   );
+  // }
 
   return config;
 };

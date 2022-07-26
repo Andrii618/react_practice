@@ -12,7 +12,6 @@ const greetBlock = (
 );
 
 ReactDOM.render(greetBlock, rootElement);
-
 // const renderGreeting = elem => {
 //   const containerElem = document.createElement('div');
 //   containerElem.classList.add('greeting');
