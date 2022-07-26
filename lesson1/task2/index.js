@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 const rootElement = document.querySelector('#root');
 
 const greetBlock = React.createElement('div', { className: 'greeting' }, [
