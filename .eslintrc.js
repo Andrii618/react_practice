@@ -13,7 +13,6 @@ module.exports = {
     },
     ecmaVersion: 2021,
     sourceType: 'module',
-    // requireConfigFile: false,
   },
   rules: {
     'import/extensions': 0,
