@@ -1,8 +1,9 @@
 import moment from 'moment';
 
-const UTC_OFFSET = 2;
+export default offset => {
+  const currentTime = new Date();
+  const utcOffset = currentTime.getTimezoneOffset() / 60;
+  const utcTime = new Date(currentTime.setHours(currentTime.getHours() + utcOffset + offset));
 
-export default offset =>
-  moment()
-    .subtract(-offset + UTC_OFFSET, 'hours')
-    .format('h:mm:ss a');
+  return moment(utcTime).format('LTS');
+};
