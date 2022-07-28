@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const UTC_OFFSET = 2;
+const UTC_OFFSET = 3;
 
 export default offset =>
   moment()
