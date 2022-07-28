@@ -10,7 +10,7 @@ const Profile = ({ userData }) => (
       {userData.firstName} {userData.lastName}
     </div>
     <div className="profile__birth">
-      Was born {formatBirth(userData.birthDate)} in {userData.birthPlace}{' '}
+      Was born {formatBirth(userData.birthDate)} in {userData.birthPlace}
     </div>
   </div>
 );
