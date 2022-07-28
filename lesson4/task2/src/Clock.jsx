@@ -4,7 +4,7 @@ import getTimeWithOffset from './getTimeWithOffset';
 
 import './clock.scss';
 
-export default class Counter extends Component {
+export default class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
