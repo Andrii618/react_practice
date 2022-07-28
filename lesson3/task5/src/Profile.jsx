@@ -1,6 +1,6 @@
 import React from 'react';
 
-import formatBirth from './formatBirth';
+import formatBirthDate from './formatBirthDate';
 
 import './profile.scss';
 
@@ -10,7 +10,7 @@ const Profile = ({ userData }) => (
       {userData.firstName} {userData.lastName}
     </div>
     <div className="profile__birth">
-      Was born {formatBirth(userData.birthDate)} in {userData.birthPlace}
+      Was born {formatBirthDate(userData.birthDate)} in {userData.birthPlace}
     </div>
   </div>
 );
