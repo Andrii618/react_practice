@@ -9,7 +9,7 @@ export default class Counter extends Component {
   }
 
   toggleStatus = () => {
-    this.setState(({ toggled }) => ({ toggled: !toggled, status: toggled ? 'ON' : 'OFF' }));
+    this.setState(({ toggled }) => ({ toggled: !toggled, status: !toggled ? 'ON' : 'OFF' }));
   };
 
   render() {
