@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Counter from './Colors';
+import Colors from './Colors';
 
-const App = () => <Counter />;
+const App = () => <Colors />;
 
 export default App;
