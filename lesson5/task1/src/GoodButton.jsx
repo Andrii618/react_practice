@@ -15,3 +15,15 @@ export default class GoodButton extends Component {
     );
   }
 }
+
+// export function GoodButton1() {
+//   function showMessage() {
+//     alert('Good work!');
+//   }
+
+//   return (
+//     <button className="fancy-button" onClick={showMessage}>
+//       Fancy Button
+//     </button>
+//   );
+// }
