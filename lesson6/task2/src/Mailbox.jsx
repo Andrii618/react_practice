@@ -1,0 +1,12 @@
+import React from 'react';
+
+import './mailbox.scss';
+
+const Mailbox = ({ unreadMessages }) => (
+  <div className="mailbox">
+    <span className="mailbox__text">Messages</span>
+    {unreadMessages > 0 && <span className="mailbox__count">{unreadMessages}</span>}
+  </div>
+);
+
+export default Mailbox;
