@@ -5,17 +5,17 @@ import './toggler.scss';
 export default class Counter extends Component {
   constructor() {
     super();
-    this.state = { toggled: false, status: 'Off' };
+    this.state = { active: false };
   }
 
   toggleStatus = () => {
-    this.setState(({ toggled }) => ({ toggled: !toggled, status: !toggled ? 'On' : 'Off' }));
+    this.setState(({ active }) => ({ active: !active }));
   };
 
   render() {
     return (
       <div className="toggler" onClick={this.toggleStatus}>
-        {this.state.status}
+        {this.state.active ? 'On' : 'Off'}
       </div>
     );
   }
