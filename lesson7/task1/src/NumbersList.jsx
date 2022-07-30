@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ListItem from './ListItem';
+// import ListItem from './ListItem';
 
 const NumbersList = ({ numbers }) => (
   <ul>
     {numbers.map(num => (
-      <ListItem key={String(num)} elem={num} />
+      <li key={String(num)}>{num}</li>
     ))}
   </ul>
 );
