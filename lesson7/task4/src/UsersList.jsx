@@ -8,12 +8,12 @@ import './users.scss';
 class UsersList extends Component {
   state = {
     currentPage: 1,
-    itemsPerPage: 4,
-    totalItems: 8,
+    itemsPerPage: 3,
+    totalItems: 7,
     userPosition: 0,
   };
 
-  users = this.props.users.slice().map(user => <User key={user.id} {...user} />);
+  users = this.props.users.map(user => <User key={user.id} {...user} />);
 
   onPrevPage = () => {
     this.setState(({ currentPage, userPosition, itemsPerPage }) => ({
