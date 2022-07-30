@@ -9,9 +9,11 @@ class UsersList extends Component {
   state = {
     currentPage: 1,
     itemsPerPage: 3,
-    totalItems: 5,
+    totalItems: 8,
     userPosition: 0,
   };
+
+  users = this.props.users.map(user => <User key={user.id} {...user} />);
 
   onPrevPage = () => {
     this.setState(({ currentPage, userPosition, itemsPerPage }) => ({
@@ -27,21 +29,13 @@ class UsersList extends Component {
     }));
   };
 
-  users = this.props.users.map(user => <User key={user.id} {...user} />);
-
   render() {
     const startPoint = this.state.userPosition;
     const endPoint = this.state.userPosition + this.state.itemsPerPage;
 
     return (
       <div>
-        <Pagination
-          goNext={this.onNextPage}
-          goPrev={this.onPrevPage}
-          currentPage={this.state.currentPage}
-          totalItems={this.state.totalItems}
-          itemsPerPage={this.state.itemsPerPage}
-        />
+        <Pagination goNext={this.onNextPage} goPrev={this.onPrevPage} {...this.state} />
         <ul className="users">{this.users.slice(startPoint, endPoint)}</ul>
       </div>
     );

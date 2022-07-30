@@ -8,6 +8,9 @@ const users = [
   { age: 15, name: 'Andrii', id: 3 },
   { age: 49, name: 'Ivan', id: 4 },
   { age: 16, name: 'Andrii', id: 5 },
+  { age: 15, name: 'Masha', id: 6 },
+  { age: 42, name: 'Vika', id: 7 },
+  { age: 55, name: 'Sveta', id: 8 },
 ];
 
 const App = () => <UsersList users={users} />;
