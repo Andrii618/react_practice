@@ -8,7 +8,7 @@ import './users.scss';
 class UsersList extends Component {
   state = {
     currentPage: 1,
-    itemsPerPage: 3,
+    itemsPerPage: 2,
     totalItems: 8,
     userPosition: 0,
   };
@@ -31,8 +31,7 @@ class UsersList extends Component {
 
   render() {
     const startPoint = this.state.userPosition;
-    const endPoint = this.state.userPosition + this.state.itemsPerPage;
-    this.users.length = this.state.totalItems;
+    const endPoint = this.state.currentPage * this.state.itemsPerPage;
 
     return (
       <div>
