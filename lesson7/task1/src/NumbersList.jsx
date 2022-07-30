@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import ListItem from './ListItem';
-
 const NumbersList = ({ numbers }) => (
   <ul>
     {numbers.map(num => (
