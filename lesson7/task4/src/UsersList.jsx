@@ -9,7 +9,7 @@ class UsersList extends Component {
   state = {
     currentPage: 1,
     itemsPerPage: 3,
-    totalItems: 7,
+    totalItems: 8,
     userPosition: 0,
   };
 
