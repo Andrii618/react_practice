@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './pagination.scss';
+import './users.scss';
 
 const User = ({ age, name }) => (
   <li className="user">

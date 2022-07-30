@@ -1,34 +1,15 @@
 import React from 'react';
 
-import TransactionsList from './TransactionsList';
+import UsersList from './UsersList';
 
-const transactions = [
-  {
-    id: 'id-0',
-    from: 'USD',
-    to: 'EUR',
-    amount: 1200,
-    rate: 0.8,
-    time: '2019-01-10T17:08:35.447Z',
-  },
-  {
-    id: 'id-1',
-    from: 'USD',
-    to: 'UAH',
-    amount: 100000,
-    rate: 25.7,
-    time: '2019-01-10T18:22:35.447Z',
-  },
-  {
-    id: 'id-2',
-    from: 'EUR',
-    to: 'USD',
-    amount: 100,
-    rate: 1.1,
-    time: '2019-01-10T17:01:35.447Z',
-  },
+const users = [
+  { age: 17, name: 'Boris', id: 1 },
+  { age: 22, name: 'Jhon', id: 2 },
+  { age: 15, name: 'Andrii', id: 3 },
+  { age: 49, name: 'Ivan', id: 4 },
+  { age: 16, name: 'Andrii', id: 5 },
 ];
 
-const App = () => <TransactionsList transactions={transactions} />;
+const App = () => <UsersList users={users} />;
 
 export default App;
