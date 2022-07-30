@@ -8,12 +8,12 @@ import './users.scss';
 class UsersList extends Component {
   state = {
     currentPage: 1,
-    itemsPerPage: 3,
+    itemsPerPage: 4,
     totalItems: 8,
     userPosition: 0,
   };
 
-  users = this.props.users.map(user => <User key={user.id} {...user} />);
+  users = this.props.users.slice().map(user => <User key={user.id} {...user} />);
 
   onPrevPage = () => {
     this.setState(({ currentPage, userPosition, itemsPerPage }) => ({
@@ -32,6 +32,7 @@ class UsersList extends Component {
   render() {
     const startPoint = this.state.userPosition;
     const endPoint = this.state.userPosition + this.state.itemsPerPage;
+    this.users.length = this.state.totalItems;
 
     return (
       <div>
