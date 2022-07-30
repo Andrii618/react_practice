@@ -8,7 +8,7 @@ import './users.scss';
 class UsersList extends Component {
   state = {
     currentPage: 1,
-    itemsPerPage: 3,
+    itemsPerPage: 2,
     totalItems: 8,
     userPosition: 0,
   };
