@@ -8,30 +8,32 @@ class Dimensions extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
-    this.setDimensions();
+    const { innerWidth, innerHeight } = window;
+
+    this.setDimensions(innerWidth, innerHeight);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
   }
 
-  onResize = () => {
-    this.setDimensions();
+  onResize = e => {
+    const { innerWidth, innerHeight } = e.target;
+
+    this.setDimensions(innerWidth, innerHeight);
   };
 
-  setDimensions = () => {
-    const { innerWidth, innerHeight } = window;
-
+  setDimensions = (width, height) => {
     this.setState({
-      width: innerWidth,
-      height: innerHeight,
+      width,
+      height,
     });
 
-    document.title = `${innerWidth} x ${innerHeight}`;
+    document.title = `${width} x ${height}`;
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width} x ${this.state.height}`}</div>;
+    return <div className="dimensions">{`${this.state.width} - ${this.state.height}`}</div>;
   }
 }
 
