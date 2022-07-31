@@ -4,7 +4,7 @@ import './status.scss';
 
 export default class ConnectionStatus extends Component {
   state = {
-    status: 'Online',
+    status: 'online',
     className: 'status',
   };
 
@@ -20,7 +20,7 @@ export default class ConnectionStatus extends Component {
 
   onConnectionChange = () => {
     this.setState(({ status, className }) => ({
-      status: status === 'Online' ? 'Offline' : 'Online',
+      status: status === 'online' ? 'offline' : 'online',
       className: className === 'status' ? 'status status_offline' : 'status',
     }));
   };
