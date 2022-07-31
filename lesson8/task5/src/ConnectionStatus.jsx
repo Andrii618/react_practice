@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Offline from './Offline';
+import Online from './Online';
+
 import './status.scss';
 
 export default class ConnectionStatus extends Component {
@@ -22,8 +25,10 @@ export default class ConnectionStatus extends Component {
   };
 
   render() {
-    const statusClass = this.state.status === 'online' ? '' : 'status_offline';
+    if (this.state.status === 'online') {
+      return <Online />;
+    }
 
-    return <div className={`status ${statusClass}`}>{this.state.status}</div>;
+    return <Offline />;
   }
 }
