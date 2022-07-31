@@ -9,13 +9,13 @@ export default class ConnectionStatus extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('online', this.onResize);
-    window.addEventListener('offline', this.onResize);
+    window.addEventListener('online', this.onConnectionChange);
+    window.addEventListener('offline', this.onConnectionChange);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize);
-    window.addEventListener('offline', this.onResize);
+    window.removeEventListener('resize', this.onConnectionChange);
+    window.addEventListener('offline', this.onConnectionChange);
   }
 
   onConnectionChange = () => {
@@ -26,6 +26,6 @@ export default class ConnectionStatus extends Component {
   };
 
   render() {
-    return <div className={this.state.status}>{this.state.status}</div>;
+    return <div className={this.state.className}>{this.state.status}</div>;
   }
 }
