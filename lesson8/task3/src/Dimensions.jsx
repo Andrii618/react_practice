@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 import getDimensions from './getDimensions';
 
 class Dimensions extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = getDimensions();
-  }
+  state = getDimensions();
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
@@ -22,7 +18,7 @@ class Dimensions extends Component {
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
+    return <div className="dimensions">{`${this.state.width} x ${this.state.height}`}</div>;
   }
 }
 
