@@ -6,11 +6,15 @@ class Dimensions extends Component {
   constructor(props) {
     super(props);
 
-    this.state = getDimensions();
+    this.state = {
+      width: null,
+      height: null,
+    };
   }
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
+    this.setState(getDimensions());
   }
 
   componentWillUnmount() {
