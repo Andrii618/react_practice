@@ -19,10 +19,14 @@ class ClockDisplay extends Component {
         <button className="btn" onClick={this.onToggle}>
           Toggle
         </button>
-        <div className="display">
-          {this.state.visible &&
-            this.props.clocks.map(clock => <Clock key={clock.id} {...clock} />)}
-        </div>
+
+        {this.state.visible && (
+          <div className="display">
+            {this.props.clocks.map(clock => (
+              <Clock key={clock.id} {...clock} />
+            ))}
+          </div>
+        )}
       </>
     );
   }
