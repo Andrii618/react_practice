@@ -5,7 +5,6 @@ import './status.scss';
 export default class ConnectionStatus extends Component {
   state = {
     status: 'online',
-    className: 'status',
   };
 
   componentDidMount() {
@@ -18,14 +17,13 @@ export default class ConnectionStatus extends Component {
     window.removeEventListener('offline', this.onConnectionChange);
   }
 
-  onConnectionChange = () => {
-    this.setState(({ status, className }) => ({
-      status: status === 'online' ? 'offline' : 'online',
-      className: className === 'status' ? 'status status_offline' : 'status',
-    }));
+  onConnectionChange = event => {
+    this.setState({ status: event.type });
   };
 
   render() {
-    return <div className={this.state.className}>{this.state.status}</div>;
+    const statusClass = this.state.status === 'online' ? '' : 'status_offline';
+
+    return <div className={`status ${statusClass}`}>{this.state.status}</div>;
   }
 }
