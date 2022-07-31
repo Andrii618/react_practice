@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Dimensions extends Component {
+class Dimensions extends React.Component {
   state = {
     width: null,
     height: null,
@@ -9,7 +9,6 @@ class Dimensions extends Component {
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
     const { innerWidth, innerHeight } = window;
-
     this.setDimensions(innerWidth, innerHeight);
   }
 
@@ -28,12 +27,11 @@ class Dimensions extends Component {
       width,
       height,
     });
-
     document.title = `${width} x ${height}`;
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width} x ${this.state.height}`}</div>;
+    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
   }
 }
 
