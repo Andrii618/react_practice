@@ -14,7 +14,7 @@ export default class ConnectionStatus extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onConnectionChange);
+    window.removeEventListener('online', this.onConnectionChange);
     window.removeEventListener('offline', this.onConnectionChange);
   }
 
