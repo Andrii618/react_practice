@@ -19,7 +19,6 @@ class ClockDisplay extends Component {
         <button className="btn" onClick={this.onToggle}>
           Toggle
         </button>
-
         {this.state.visible && (
           <div className="display">
             {this.props.clocks.map(clock => (
