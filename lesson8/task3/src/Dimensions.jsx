@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import getDimensions from './getDimensions';
 
-class Dimensions extends Component {
+export default class Dimensions extends Component {
   state = getDimensions();
 
   componentDidMount() {
@@ -18,8 +18,6 @@ class Dimensions extends Component {
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width} x ${this.state.height}`}</div>;
+    return <div className="dimensions">{`${this.state.width}px x ${this.state.height}px`}</div>;
   }
 }
-
-export default Dimensions;
