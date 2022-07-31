@@ -18,6 +18,6 @@ export default class Dimensions extends Component {
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width}px x ${this.state.height}px`}</div>;
+    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
   }
 }
