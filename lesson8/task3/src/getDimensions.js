@@ -1,6 +1,6 @@
 export default () => {
   const { innerWidth, innerHeight } = window;
-  document.title = `${innerWidth}px - ${innerHeight}px`;
+  document.title = `${innerWidth} x ${innerHeight}`;
 
   return { width: innerWidth, height: innerHeight };
 };

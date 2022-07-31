@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import getDimensions from './getDimensions';
 
-class Dimension extends Component {
+class Dimensions extends Component {
   constructor(props) {
     super(props);
 
@@ -22,8 +22,8 @@ class Dimension extends Component {
   };
 
   render() {
-    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
+    return <div className="dimensions">{`${this.state.width} x ${this.state.height}`}</div>;
   }
 }
 
-export default Dimension;
+export default Dimensions;
