@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Filter from './Filter';
 import User from './User';
-import filterByName from './filterByName';
+import getIncludeResult from './getIncludeResult';
 
 import './users.scss';
 
@@ -17,7 +17,7 @@ export default class UsersList extends Component {
 
   render() {
     const users = this.props.users
-      .filter(({ name }) => filterByName(name, this.state.filterText))
+      .filter(({ name }) => getIncludeResult(name, this.state.filterText))
       .map(({ id, name, age }) => <User key={id} name={name} age={age} />);
 
     return (
