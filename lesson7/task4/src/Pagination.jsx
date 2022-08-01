@@ -4,7 +4,7 @@ import './pagination.scss';
 
 const Pagination = ({ goPrev, goNext, currentPage, itemsPerPage, totalItems }) => {
   const isPrevPageAvailable = currentPage !== 1;
-  const isNextPageAvailable = currentPage <= totalItems / itemsPerPage;
+  const isNextPageAvailable = currentPage < totalItems / itemsPerPage;
 
   return (
     <div className="pagination">
