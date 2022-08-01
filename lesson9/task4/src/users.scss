@@ -1,0 +1,16 @@
+.users {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user {
+  margin: 8px;
+  display: flex;
+  width: 400px;
+
+  &__age {
+    font-weight: 700;
+    opacity: 0.5;
+    margin-left: auto;
+  }
+}
