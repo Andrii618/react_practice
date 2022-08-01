@@ -11,7 +11,7 @@ export default class UsersList extends Component {
     filterText: '',
   };
 
-  handleFilterText = event => {
+  handleChangeText = event => {
     this.setState({ filterText: event.target.value });
   };
 
@@ -22,7 +22,7 @@ export default class UsersList extends Component {
 
     return (
       <div>
-        <Filter count={users.length} onChange={this.handleFilterText} />
+        <Filter count={users.length} onChange={this.handleChangeText} />
         <ul className="users">{users}</ul>
       </div>
     );
