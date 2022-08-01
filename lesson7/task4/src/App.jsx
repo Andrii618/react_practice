@@ -12,6 +12,10 @@ const users = [
   { age: 42, name: 'Vika', id: 7 },
   { age: 55, name: 'Sveta', id: 8 },
   { age: 20, name: 'Anton', id: 9 },
+  { age: 25, name: 'Igor', id: 10 },
+  { age: 75, name: 'Boris', id: 11 },
+  { age: 30, name: 'Mariya', id: 12 },
+  { age: 15, name: 'Slavik', id: 13 },
 ];
 
 const App = () => <UsersList users={users} />;
