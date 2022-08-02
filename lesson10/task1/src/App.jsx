@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Page from './Page';
+import UserMenu from './UserMenu';
+import UserProfile from './UserProfile';
 
-const App = () => <Page userName="facebook" />;
+import './index.scss';
+
+const App = ({ userName }) => {
+  const [userData, setUserData] = useState(null);
+
+  const fetchUserData = name => {
+    fetch(`https://api.github.com/users/${name}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.message === 'Not Found') {
+          return null;
+        }
+
+        setUserData({ data });
+      });
+  };
+
+  if (!userData) {
+    fetchUserData(userName);
+    return null;
+  }
+
+  return (
+    <div className="page">
+      <UserMenu userData={userData.data} />
+      <UserProfile userData={userData.data} />
+    </div>
+  );
+};
 
 export default App;
