@@ -1,20 +1,20 @@
 import React from 'react';
 
-const UserForm = ({ userData, onChange }) => (
+const UserForm = ({ userData, handleChange }) => (
   <form className="user-form">
     <input
       type="text"
       name="firstName"
       className="user-form__input"
       value={userData.firstName}
-      onChange={onChange}
+      onChange={handleChange}
     />
     <input
       type="text"
       name="lastName"
       className="user-form__input"
       value={userData.lastName}
-      onChange={onChange}
+      onChange={handleChange}
     />
   </form>
 );

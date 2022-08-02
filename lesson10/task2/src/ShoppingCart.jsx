@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ProductsList from './ProductsList.jsx';
+import CartTitle from './CartTitle.jsx';
 
-import ProductsList from './ProductsList';
-import CartTitle from './CartTitle';
+class ShoppingCart extends Component {
+  state = {
+    cartItems: [
+      {
+        id: '1',
+        name: 'Iphone 11',
+        price: 999,
+      },
+      {
+        id: '2',
+        name: 'Ipad Pro',
+        price: 799,
+      },
+    ],
+  };
 
-const ShoppingCart = ({ userName, count, purshases }) => (
-  <div className="column">
-    <CartTitle count={count} userName={userName} />
-    <ProductsList cartItems={purshases} />
-  </div>
-);
+  render() {
+    const count = this.state.cartItems.length;
+    return (
+      <div className="column">
+        <CartTitle userName={this.props.userName} count={count} />
+        <ProductsList cartItems={this.state.cartItems} />
+      </div>
+    );
+  }
+}
 
 export default ShoppingCart;
