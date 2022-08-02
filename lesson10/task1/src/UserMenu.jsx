@@ -6,7 +6,9 @@ const UserMenu = ({ userData }) => {
   if (!userData) {
     return null;
   }
+
   const { name, avatar_url } = userData;
+
   return (
     <div className="menu">
       <span className="menu__name">{name}</span>

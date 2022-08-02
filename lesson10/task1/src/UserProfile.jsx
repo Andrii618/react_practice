@@ -6,6 +6,7 @@ const UserProfile = ({ userData }) => {
   if (!userData) {
     return null;
   }
+
   const { name, location, avatar_url } = userData;
 
   return (
