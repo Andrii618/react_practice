@@ -10,33 +10,39 @@ const purshases = [
   { id: '1', name: 'iPad Pro 2022', price: 1500 },
 ];
 
-export default class App extends Component {
+export default class App extends React.Component {
   state = {
-    userData: { firstName: 'Andrii', lastName: 'Shevchuk' },
+    userData: {
+      firstName: 'Tom',
+      lastName: 'Ford',
+    },
     products: purshases,
   };
 
   onChange = event => {
+    const { name, value } = event.target;
+
     this.setState({
-      userData: { ...this.state.userData, [event.target.name]: event.target.value },
+      userData: {
+        ...this.state.userData,
+        [name]: value,
+      },
     });
   };
 
   render() {
-    const data = this.state.userData;
+    const { userData } = this.state;
 
     return (
       <div className="page">
-        <h1 className="title">
-          Hello, {data.firstName} {data.lastName}
-        </h1>
+        <h1 className="title">{`Hello, ${userData.firstName} ${userData.lastName}`}</h1>
         <main className="content">
           <ShoppingCart
-            userName={data.firstName}
+            userName={userData.firstName}
             count={this.state.products.length}
             purshases={this.state.products}
           />
-          <Profile userData={data} onChange={this.onChange} />
+          <Profile userData={userData} onChange={this.onChange} />
         </main>
       </div>
     );
