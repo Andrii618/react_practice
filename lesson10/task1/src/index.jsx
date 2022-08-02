@@ -7,4 +7,4 @@ import './index.scss';
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<App userName="facebookdsasda" />);
+root.render(<App />);
