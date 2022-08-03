@@ -1,9 +1,16 @@
 import React from 'react';
 
-import Info from './Info';
+import Expand from './Expand';
 
 import './expand.scss';
 
-const App = () => <Info />;
+const App = () => (
+  <Expand title="Some title">
+    <p>
+      Hooks are a new addition in React 16.8. They let you use state and other React features
+      without writing a class.
+    </p>
+  </Expand>
+);
 
 export default App;

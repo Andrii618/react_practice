@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './expand.scss';
 
-const Expand = ({ children, title, isVisible, onButtonClick }) => (
-  <div className="expand border">
-    <div className="expand__header">
-      <span className="expand__title">{title}</span>
-      <button className="expand__toggle-btn" onClick={onButtonClick}>
-        {isVisible ? (
-          <i className="fas fa-chevron-up"></i>
-        ) : (
-          <i className="fas fa-chevron-down"></i>
-        )}
-      </button>
-    </div>
-    {isVisible && <div className="expand__content">{children}</div>}
-  </div>
-);
+export default class Expand extends Component {
+  state = {
+    isVisible: false,
+  };
 
-export default Expand;
+  handleVisibility = () => {
+    this.setState({ isVisible: !this.state.isVisible });
+  };
+
+  render() {
+    return (
+      <div className="expand border">
+        <div className="expand__header">
+          <span className="expand__title">{this.props.title}</span>
+          <button className="expand__toggle-btn" onClick={this.handleVisibility}>
+            {this.state.isVisible ? (
+              <i className="fas fa-chevron-up"></i>
+            ) : (
+              <i className="fas fa-chevron-down"></i>
+            )}
+          </button>
+        </div>
+        {this.state.isVisible && <div className="expand__content">{this.props.children}</div>}
+      </div>
+    );
+  }
+}
