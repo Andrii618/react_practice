@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './userProfile.scss';
-
 const UserProfile = ({ userData }) => {
   if (!userData) {
     return null;

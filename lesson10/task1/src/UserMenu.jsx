@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './header.scss';
-
 const UserMenu = ({ userData }) => {
   if (!userData) {
     return null;

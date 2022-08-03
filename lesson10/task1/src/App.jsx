@@ -15,17 +15,27 @@ export default class App extends Component {
   fetchUserData = userId => {
     const userUrl = `https://api.github.com/users/${userId}`;
     fetch(userUrl)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          return null;
+        }
+
+        return response.json();
+      })
       .then(userData => this.setState({ userData }));
   };
 
   render() {
     return (
       <div className="page">
-        <header className="header">
-          <UserMenu userData={this.state.userData} />
-        </header>
-        <UserProfile userData={this.state.userData} />
+        {this.state.userData && (
+          <>
+            <header className="header">
+              <UserMenu userData={this.state.userData} />
+            </header>
+            <UserProfile userData={this.state.userData} />
+          </>
+        )}
       </div>
     );
   }
