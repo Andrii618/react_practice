@@ -28,14 +28,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="page">
-        {this.state.userData && (
-          <>
-            <header className="header">
-              <UserMenu userData={this.state.userData} />
-            </header>
-            <UserProfile userData={this.state.userData} />
-          </>
-        )}
+        <header className="header">
+          <UserMenu userData={this.state.userData} />
+        </header>
+        <UserProfile userData={this.state.userData} />
       </div>
     );
   }

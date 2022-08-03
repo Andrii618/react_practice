@@ -1,6 +1,6 @@
 import React from 'react';
-import ShoppingCart from './ShoppingCart.jsx';
-import Profile from './Profile.jsx';
+import ShoppingCart from './ShoppingCart';
+import Profile from './Profile';
 
 class App extends React.Component {
   state = {
