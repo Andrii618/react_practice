@@ -13,7 +13,7 @@ const SearchBar = ({ filterText, onFilterTextChange, onInStockChange, inStockOnl
         type="checkbox"
         checked={inStockOnly}
         onChange={e => onInStockChange(e.target.checked)}
-      />{' '}
+      />
       Only show products in stock
     </p>
   </form>

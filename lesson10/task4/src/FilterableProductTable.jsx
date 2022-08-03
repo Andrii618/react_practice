@@ -3,13 +3,10 @@ import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 
 class FilterableProductTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filterText: '',
-      inStockOnly: false,
-    };
-  }
+  state = {
+    filterText: '',
+    inStockOnly: false,
+  };
 
   handleFilterTextChange = filterText => {
     this.setState({
