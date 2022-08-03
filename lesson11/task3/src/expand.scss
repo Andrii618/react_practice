@@ -20,6 +20,7 @@
     border: none;
     background-color: transparent;
     outline: none;
+    cursor: pointer;
   }
 
   &__content {
@@ -28,8 +29,4 @@
     min-height: 48px;
     opacity: 0.7;
   }
-}
-
-svg {
-  cursor: pointer;
 }
