@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Spinner from './Spinner';
 
 function withDataLoader(url) {
   return function newComp(WrappedComponent) {
@@ -13,7 +14,13 @@ function withDataLoader(url) {
 
       fetchUserData() {
         fetch(url)
-          .then(res => res.json())
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('data loading failed');
+            }
+
+            return res.json();
+          })
           .then(data => {
             this.setState({ data });
           });
@@ -21,7 +28,7 @@ function withDataLoader(url) {
 
       render() {
         if (!this.state.data) {
-          return null;
+          return <Spinner size={60} />;
         }
 
         return <WrappedComponent data={this.state.data} />;
