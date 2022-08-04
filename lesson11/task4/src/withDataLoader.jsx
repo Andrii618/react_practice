@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from './Spinner';
 
 function withDataLoader(url) {
-  return function newComp(WrappedComponent) {
+  return function nestData(WrappedComponent) {
     return class New extends Component {
       state = {
         data: null,
