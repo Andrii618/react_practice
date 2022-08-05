@@ -1,7 +1,7 @@
 import React from 'react';
-import Task from './Task.jsx';
-import CreateTaskInput from './CreateTaskInput.jsx';
-import { createTask, fetchTasksList, updateTask, deleteTask } from './tasksGateway.js';
+import Task from './Task';
+import CreateTaskInput from './CreateTaskInput';
+import { createTask, fetchTasksList, updateTask, deleteTask } from './tasksGateway';
 
 class TasksList extends React.Component {
   state = {
