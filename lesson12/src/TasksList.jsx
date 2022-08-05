@@ -1,64 +1,64 @@
-import React, { Component } from 'react';
-import CreateTaskInput from './CreateTaskInput';
+import React from 'react';
 import Task from './Task';
-import { createTask, deleteTask, updateTask, fetchTasks } from './tasksGateway';
+import CreateTaskInput from './CreateTaskInput';
+import { createTask, fetchTasksList, updateTask, deleteTask } from './tasksGateway';
 
-class TasksList extends Component {
+class TasksList extends React.Component {
   state = {
     tasks: [],
   };
 
   componentDidMount() {
-    this.handleTasksFetch();
+    this.fetchTasks();
   }
 
-  handleTasksFetch = () => {
-    fetchTasks().then(tasks => {
-      this.setState({ tasks });
+  fetchTasks = () => {
+    fetchTasksList().then(tasksList => {
+      this.setState({
+        tasks: tasksList,
+      });
     });
   };
 
-  handleTaskCreate = text => {
-    if (text.length === 0) {
-      return;
-    }
+  onCreate = text => {
+    const newTask = {
+      text,
+      done: false,
+    };
 
-    createTask(text).then(() => {
-      this.handleTasksFetch();
-    });
+    return createTask(newTask).then(() => this.fetchTasks());
+  };
+
+  handleTaskStatusChange = id => {
+    const { done, text } = this.state.tasks.find(task => task.id === id);
+    const updatedTask = {
+      text,
+      done: !done,
+    };
+    updateTask(id, updatedTask).then(() => this.fetchTasks());
   };
 
   handleTaskDelete = id => {
-    deleteTask(id).then(() => {
-      this.handleTasksFetch();
-    });
-  };
-
-  handleStatusToggle = id => {
-    const { done, text } = this.state.tasks.find(task => task.id === id);
-
-    updateTask(id, { text, done: !done }).then(() => {
-      this.handleTasksFetch();
-    });
+    deleteTask(id).then(() => this.fetchTasks());
   };
 
   render() {
     const sortedList = this.state.tasks.slice().sort((a, b) => a.done - b.done);
 
     return (
-      <div className="todo-list">
-        <CreateTaskInput onCreate={this.handleTaskCreate} />
+      <main className="todo-list">
+        <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
           {sortedList.map(task => (
             <Task
               key={task.id}
               {...task}
-              onToggle={this.handleStatusToggle}
+              onChange={this.handleTaskStatusChange}
               onDelete={this.handleTaskDelete}
             />
           ))}
         </ul>
-      </div>
+      </main>
     );
   }
 }
