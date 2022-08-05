@@ -7,16 +7,18 @@ const path = require('path');
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
   const config = {
-    entry: './src/index.jsx',
+    mode: 'development',
+    entry: {
+      main: path.resolve(__dirname, './src/index.js'),
+    },
     output: {
+      path: path.resolve(__dirname, './dist'),
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'review_build'),
     },
     module: {
       rules: [
         {
-          test: /.(js|jsx?)$/,
-          exclude: /node_modules/,
+          test: /.\.js$|jsx/,
           use: ['babel-loader'],
         },
         {
@@ -29,9 +31,6 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    resolve: {
-      extensions: ['.js', '.jsx'],
-    },
     plugins: [
       new webpack.ProgressPlugin(),
       new CleanWebpackPlugin(),
@@ -40,10 +39,7 @@ module.exports = (env, argv) => {
       }),
     ],
     devServer: {
-      historyApiFallback: true,
-      open: true,
       hot: true,
-      port: 8080,
     },
   };
 
