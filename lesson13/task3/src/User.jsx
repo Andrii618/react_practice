@@ -18,7 +18,7 @@ const User = () => {
       .then(data => {
         const { avatar_url: avatar, name, location } = data;
 
-        setUserData({ avatar, name, location });
+        setUserData({ avatar, name, location, currentUser: userName });
       });
   };
 
@@ -27,7 +27,11 @@ const User = () => {
     return null;
   }
 
-  const { avatar, name, location } = userData;
+  const { avatar, name, location, currentUser } = userData;
+
+  if (currentUser !== userName) {
+    setUserData(null);
+  }
 
   return (
     <div className="user">
