@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const User = () => {
-  const { userName } = useParams();
+  const { userId } = useParams();
   const [userData, setUserData] = useState(null);
 
   const fetchUserData = () => {
-    console.log(userName);
-    fetch(`https://api.github.com/users/${userName}`)
+    fetch(`https://api.github.com/users/${userId}`)
       .then(res => {
         if (!res.ok) {
           throw new Error(`Failed to load user data`);
@@ -18,20 +17,17 @@ const User = () => {
       .then(data => {
         const { avatar_url: avatar, name, location } = data;
 
-        setUserData({ avatar, name, location, currentUser: userName });
+        setUserData({ avatar, name, location, currentUser: userId });
       });
   };
 
-  if (!userData) {
+  if (!userData || userData.currentUser !== userId) {
     fetchUserData();
+
     return null;
   }
 
-  const { avatar, name, location, currentUser } = userData;
-
-  if (currentUser !== userName) {
-    setUserData(null);
-  }
+  const { avatar, name, location } = userData;
 
   return (
     <div className="user">

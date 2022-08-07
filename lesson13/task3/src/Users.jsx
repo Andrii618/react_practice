@@ -20,7 +20,7 @@ const Users = () => {
       <Route exact path={url}>
         <span>Select a user please</span>
       </Route>
-      <Route path={`${url}/:userName`}>
+      <Route path={`${url}/:userId`}>
         <User />
       </Route>
     </div>
