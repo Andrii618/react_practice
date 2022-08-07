@@ -16,7 +16,7 @@ const App = () => (
             <Link to="/users/facebook">Facebook</Link>
           </li>
         </ul>
-        <Route exact path="/users">
+        <Route exact path="/">
           <span>Select a user please</span>
         </Route>
         <Route path="/users/:userId">
