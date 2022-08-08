@@ -7,7 +7,10 @@ const Dimensions = () => {
   });
 
   const handleResize = () => {
-    setDimension({ width: window.innerWidth, height: window.innerHeight });
+    setDimension({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
   };
 
   useEffect(() => {
