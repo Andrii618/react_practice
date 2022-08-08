@@ -15,23 +15,23 @@ const User = () => {
         return res.json();
       })
       .then(data => {
-        const { avatar_url: avatar, name, location } = data;
+        const { avatar_url: avatarUrl, name, location } = data;
 
-        setUserData({ avatar, name, location, currentUser: userId });
+        setUserData({ avatarUrl, name, location, userId });
       });
   };
 
-  if (!userData || userData.currentUser !== userId) {
+  if (!userData || userData.userId !== userId) {
     fetchUserData();
 
     return null;
   }
 
-  const { avatar, name, location } = userData;
+  const { avatarUrl, name, location } = userData;
 
   return (
     <div className="user">
-      <img alt="User Avatar" src={avatar} className="user__avatar" />
+      <img alt="User Avatar" src={avatarUrl} className="user__avatar" />
       <div className="user__info">
         <span className="user__name">{name}</span>
         <span className="user__location">{location}</span>
