@@ -37,4 +37,31 @@ function withDataLoader(url) {
   };
 }
 
+// function withDataLoader(url) {
+//   return function nestData(WrappedComponent) {
+//     return () => {
+//       const [data, setData] = useState(null);
+
+//       useEffect(() => {
+//         (async () => {
+//           const res = await fetch(url);
+
+//           if (!res.ok) {
+//             throw new Error('data loading failed');
+//           }
+
+//           const data = await res.json();
+//           setData(data);
+//         })();
+//       }, []);
+
+//       if (!data) {
+//         return <Spinner size={60} />;
+//       }
+
+//       return <WrappedComponent data={data} />;
+//     };
+//   };
+// }
+
 export default withDataLoader;
