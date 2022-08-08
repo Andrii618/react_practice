@@ -3,10 +3,9 @@ import getTimeWithOffset from './getTimeWithOffset';
 
 const Clock = ({ location, offset }) => {
   const [time, setTime] = useState(getTimeWithOffset(offset));
-  let intervalId = null;
 
   useEffect(() => {
-    intervalId = setInterval(() => {
+    const intervalId = setInterval(() => {
       setTime(getTimeWithOffset(offset));
     }, 1000);
 
