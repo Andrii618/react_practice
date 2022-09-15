@@ -1,45 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Pagination from './Pagination';
 import User from './User';
 
 import './users.scss';
 
-class UsersList extends Component {
-  state = {
-    totalItems: this.props.users.length,
-    itemsPerPage: 3,
-    currentPage: 1,
-    userPosition: 0,
+const UsersList = ({ users }) => {
+  const [state, setState] = useState({ totalItems: users.length, currentPage: 1, userPosition: 0 });
+
+  const { currentPage, userPosition } = state;
+
+  const onPrevPage = () => {
+    setState({ ...state, currentPage: currentPage - 1, userPosition: userPosition - 3 });
   };
 
-  users = this.props.users.map(user => <User key={user.id} {...user} />);
-
-  onPrevPage = () => {
-    this.setState(({ currentPage, userPosition, itemsPerPage }) => ({
-      currentPage: currentPage - 1,
-      userPosition: userPosition - itemsPerPage,
-    }));
+  const onNextPage = () => {
+    setState({ ...state, currentPage: currentPage + 1, userPosition: userPosition + 3 });
   };
 
-  onNextPage = () => {
-    this.setState(({ currentPage, userPosition, itemsPerPage }) => ({
-      currentPage: currentPage + 1,
-      userPosition: userPosition + itemsPerPage,
-    }));
-  };
+  const startPoint = userPosition;
+  const endPoint = currentPage * 3;
 
-  render() {
-    const startPoint = this.state.userPosition;
-    const endPoint = this.state.currentPage * this.state.itemsPerPage;
-
-    return (
-      <div>
-        <Pagination goNext={this.onNextPage} goPrev={this.onPrevPage} {...this.state} />
-        <ul className="users">{this.users.slice(startPoint, endPoint)}</ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Pagination goNext={onNextPage} goPrev={onPrevPage} {...state} />
+      <ul className="users">
+        {users.slice(startPoint, endPoint).map(user => (
+          <User key={user.id} {...user} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default UsersList;
