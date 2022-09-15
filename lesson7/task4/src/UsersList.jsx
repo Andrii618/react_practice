@@ -10,20 +10,22 @@ const UsersList = ({ users }) => {
 
   const { currentPage, userPosition } = state;
 
+  const itemsPerPage = 3;
+
   const onPrevPage = () => {
-    setState({ ...state, currentPage: currentPage - 1, userPosition: userPosition - 3 });
+    setState({ ...state, currentPage: currentPage - 1, userPosition: userPosition - itemsPerPage });
   };
 
   const onNextPage = () => {
-    setState({ ...state, currentPage: currentPage + 1, userPosition: userPosition + 3 });
+    setState({ ...state, currentPage: currentPage + 1, userPosition: userPosition + itemsPerPage });
   };
 
   const startPoint = userPosition;
-  const endPoint = currentPage * 3;
+  const endPoint = currentPage * itemsPerPage;
 
   return (
     <div>
-      <Pagination goNext={onNextPage} goPrev={onPrevPage} {...state} />
+      <Pagination goNext={onNextPage} goPrev={onPrevPage} {...state} itemsPerPage={itemsPerPage} />
       <ul className="users">
         {users.slice(startPoint, endPoint).map(user => (
           <User key={user.id} {...user} />
