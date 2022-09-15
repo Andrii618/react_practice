@@ -6,7 +6,7 @@ import User from './User';
 import './users.scss';
 
 const UsersList = ({ users }) => {
-  const [state, setState] = useState({ totalItems: users.length, currentPage: 1, userPosition: 0 });
+  const [state, setState] = useState({ currentPage: 1, userPosition: 0 });
 
   const { currentPage, userPosition } = state;
 
@@ -25,7 +25,13 @@ const UsersList = ({ users }) => {
 
   return (
     <div>
-      <Pagination goNext={onNextPage} goPrev={onPrevPage} {...state} itemsPerPage={itemsPerPage} />
+      <Pagination
+        goNext={onNextPage}
+        goPrev={onPrevPage}
+        {...state}
+        itemsPerPage={itemsPerPage}
+        totalItems={users.length}
+      />
       <ul className="users">
         {users.slice(startPoint, endPoint).map(user => (
           <User key={user.id} {...user} />
