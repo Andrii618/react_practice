@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+
 import './styles.css';
 
-const rootElement = document.querySelector('#root');
+const root = createRoot(document.querySelector('#root'));
 
-const greetBlock = (
+const greetElement = (
   <div className="greeting">
     <h1 className="greeting__title">Hello, world!</h1>
     <p className="greeting__text">I&apos;m learning React</p>
   </div>
 );
 
-ReactDOM.render(greetBlock, rootElement);
+root.render(greetElement);
 
 // const renderGreeting = elem => {
 //   const containerElem = document.createElement('div');
