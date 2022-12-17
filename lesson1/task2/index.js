@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 const greetComponent = React.createElement('div', { className: 'greeting' }, [
-  React.createElement('h1', { className: 'greeting_title' }, 'Hello, world!'),
+  React.createElement('h1', { className: 'greeting__title' }, 'Hello, world!'),
   React.createElement('p', { className: 'greeting__text' }, "I'm learning React"),
 ]);
 
