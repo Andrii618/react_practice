@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 
-const rootElement = document.querySelector('#root');
-
-const greetBlock = React.createElement('div', { className: 'greeting' }, [
-  React.createElement('h1', { className: 'greeting__title' }, 'Hello, world!'),
+const greetComponent = React.createElement('div', { className: 'greeting' }, [
+  React.createElement('h1', { className: 'greeting_title' }, 'Hello, world!'),
   React.createElement('p', { className: 'greeting__text' }, "I'm learning React"),
 ]);
 
-ReactDOM.render(greetBlock, rootElement);
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+
+root.render(greetComponent);
 
 // const renderGreeting = elem => {
 //   const containerElem = document.createElement('div');
