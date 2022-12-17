@@ -1,6 +1,11 @@
 /* eslint-disable no-undef */
 
-const root = document.querySelector('#root');
 const greetDiv = React.createElement('div', { className: 'greeting' }, 'Hello, React!');
 
-ReactDOM.render(greetDiv, root);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(greetDiv);
+
+// const root = document.querySelector('#root');
+
+// ReactDOM.render(greetDiv, root);
