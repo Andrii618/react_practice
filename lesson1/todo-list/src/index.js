@@ -1,12 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-const rootElem = document.querySelector('#root');
+const root = document.querySelector('#root');
+
 const titleElem = <h1 className="title">Todo List</h1>;
 
-ReactDOM.render(titleElem, rootElem);
-/* first option */
-
-ReactDOM.render(<h1 className="title">Todo List</h1>, document.querySelector('#root'));
-/* second option */
+root.render(titleElem);
