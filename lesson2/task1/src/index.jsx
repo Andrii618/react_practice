@@ -5,9 +5,11 @@ const rootElement = document.querySelector('#root');
 
 const title = (
   <>
-    {' '}
-    <input type="text" />
-    <button>Search</button>
+    <h1>Search Form</h1>
+    <div>
+      <input type="text" />
+      <button type="button">Search</button>
+    </div>
   </>
 );
 
