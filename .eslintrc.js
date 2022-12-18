@@ -1,6 +1,12 @@
 module.exports = {
   plugins: ['react'],
-  extends: ['eslint:all', 'plugin:react/all', 'airbnb-base', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint:all',
+    'plugin:react/all',
+    'airbnb-base',
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime',
+  ],
   env: {
     es6: true,
     node: true,
