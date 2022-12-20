@@ -23,8 +23,9 @@ const root = createRoot(container);
 const themes = [
   {
     backgroundColor: '#fff',
+    color: '#000',
   },
-  { backgroundColor: '#000' },
+  { backgroundColor: '#000', color: '#fff' },
 ];
 
 const renderClock = () => {
