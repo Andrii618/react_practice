@@ -1,18 +1,17 @@
-import React from 'react';
 import moment from 'moment';
+
 import UserInfo from './UserInfo';
-import './comments.scss';
+
+import './comment.scss';
 
 const formatDate = date => moment(date).format('DD MMM YYYY');
 
-function Comment(props) {
-  return (
-    <div className="comment">
-      <UserInfo user={props.author} />
-      <div className="comment__text">{props.text}</div>
-      <div className="comment__date">{formatDate(props.date)}</div>
-    </div>
-  );
-}
+const Comment = ({ author, date, text }) => (
+  <div className="comment">
+    <UserInfo user={author} />
+    <div className="comment__text">{text}</div>
+    <div className="comment__date">{formatDate(date)}</div>
+  </div>
+);
 
 export default Comment;

@@ -1,5 +1,3 @@
-import React from 'react';
-
-const Avatar = props => <img className="avatar" src={props.avatarUrl} alt={props.name} />;
+const Avatar = ({ avatarUrl, name }) => <img alt={name} className="avatar" src={avatarUrl} />;
 
 export default Avatar;
