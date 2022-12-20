@@ -39,6 +39,7 @@ module.exports = {
       },
     ],
     'react/jsx-no-literals': 0,
+    'react/function-component-definition': 0,
   },
   settings: {
     'import/resolver': {
